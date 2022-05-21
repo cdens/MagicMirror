@@ -1,4 +1,4 @@
-#Magic Mirror Configuration
+# Magic Mirror Configuration
 
 The included files are my personal configuration for a magic mirror, which uses a Raspberry Pi running Raspbian and the open source Magic Mirror software (for information on installing the base software and third party modules, see https://magicmirror.builders/). 
 
