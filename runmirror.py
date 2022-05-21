@@ -49,8 +49,9 @@ class MirrorThread(threading.Thread):
             elif self.mirror_proc is not None: #verify that mirror command was executed
                 self.mirror_proc.terminate() #terminate or kill method?
                 cmd = "ps aux | grep node | grep -v 'color' | awk '{print $2}' | xargs sudo kill -9" #find and kill all NPM/electron processes to stop the mirror
+                
                 self.mirror_proc = subprocess.Popen(cmd, shell=True, stdout=self.logfileID, stderr=self.logfileID)
-                log_output("Mirror terminated")
+                self.log_output("Mirror terminated")
                 
             self._status = status #update status
             
@@ -97,15 +98,15 @@ class MirrorThread(threading.Thread):
                     
                         
             except KeyboardInterrupt: #kill program for keyboard interrupt
-                self.change_status(0)   
                 self.log_output('keyboard interrupt')
+                self.change_status(0)   
                 GPIO.cleanup()
                 close(self.logfileID)
                 keepgoing = False
                 
             except Exception: #restart mirror, log exception
-                self.change_status(0)
                 self.log_output('ERROR: ' + traceback.format_exc())
+                self.change_status(0)
                 self.change_status(1)
         
             
