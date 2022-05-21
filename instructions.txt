@@ -1,0 +1,20 @@
+All start ops must be done from ~/MagicMirror/
+
+To show log on ssh:
+npm run start
+
+To disconnect from ssh and run continuously:
+DISPLAY=:0 nohup npm start &
+
+To add modules
+cd ~/MagicMirror/modules
+git clone module here
+cd into git directory
+npm install
+add module config info to config.js
+
+Move custom.css to MagicMirror/css/custom.css
+
+Add runmirror file to home directory + set up cron job
+crontab -e (to edit, -l to view)
+@reboot python3 /home/pi/runmirror.py

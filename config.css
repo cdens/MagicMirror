@@ -1,0 +1,13 @@
+body {
+margin: 100px;
+margin-right: 800px !important;
+margin-top: 800px !important;
+margin-bottom: 800px !important;
+height: calc(100% - 100px);
+width: 30%;
+}
+
+.module.MMM-quote-of-the-day {
+  margin-top: 200px; 
+  margin-bottom: 200px; 
+}
